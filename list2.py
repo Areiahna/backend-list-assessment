@@ -5,7 +5,7 @@ Kenzie assignment: List2
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = "Areiahna Cooks, https://stackoverflow.com/questions/11964450/python-order-a-list-of-numbers-without-built-in-sort-min-max-function"
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -28,8 +28,13 @@ __author__ = "???"
 
 
 def remove_adjacent(nums):
-    # your code here
-    return
+    for char in nums:
+        if nums.count(char) > 1:
+            remove = nums.index(char) + 1
+            if char == nums[remove]:
+                nums.pop(remove)
+
+    return nums
 
 
 # E. linear_merge
@@ -44,8 +49,17 @@ def remove_adjacent(nums):
 
 
 def linear_merge(list1, list2):
-    # your code here
-    return
+    list1.extend(list2)
+    sorted_lIST = []
+
+    while list1:
+        small = list1[0]
+        for big in list1:
+            if big < small:
+                small = big
+        sorted_lIST.append(small)
+        list1.remove(small)
+    return sorted_lIST
 
 
 # Provided simple test() function used in main() to print

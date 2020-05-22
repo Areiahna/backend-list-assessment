@@ -5,7 +5,7 @@ Kenzie assignment: List1
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = "Areiahna Cooks, https://stackoverflow.com/questions/14829300/python-tuples-sorting-based-on-last-element"
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -26,24 +26,35 @@ __author__ = "???"
 
 
 def match_ends(words):
-    # your code here
-    return
+    result = 0
+    for word in words:
+        if len(word) >= 2:
+            if word[0] == word[-1]:
+                result = result+1
+    return result
 
-
-# B. front_x
-# Given a list of strings, return a list with the strings in
-# sorted order, except group all the strings that begin with
-# 'x' first.
-# Example:
-#   ['mix', 'xyz', 'apple', 'xanadu', 'aardvark'] yields
-#   ['xanadu', 'xyz', 'aardvark', 'apple', 'mix']
-# Hint: this can be done by making 2 lists and sorting each
-# of them before combining them.
+    # B. front_x
+    # Given a list of strings, return a list with the strings in
+    # sorted order, except group all the strings that begin with
+    # 'x' first.
+    # Example:
+    #   ['mix', 'xyz', 'apple', 'xanadu', 'aardvark'] yields
+    #   ['xanadu', 'xyz', 'aardvark', 'apple', 'mix']
+    # Hint: this can be done by making 2 lists and sorting each
+    # of them before combining them.
 
 
 def front_x(words):
-    # your code here
-    return
+    words2 = words.copy()
+    words2.sort()
+    emptyList = []
+    for word in words:
+        if word.startswith("x"):
+            words2.remove(word)
+            emptyList.append(word)
+    emptyList.sort()
+    emptyList.extend(words2)
+    return emptyList
 
 
 # C. sort_last
@@ -56,8 +67,8 @@ def front_x(words):
 
 
 def sort_last(tuples):
-    # your code here
-    return
+    sorted_Tuples = sorted(tuples, key=lambda x: x[-1])
+    return sorted_Tuples
 
 
 # Provided simple test() function used in main() to print
